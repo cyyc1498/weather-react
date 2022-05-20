@@ -1,10 +1,17 @@
-import React from "react";
-import axios from "axios";
+import React,{useState} from "react";
+
 
 export default function SearchEngine() {
-  return (
+  
+    let[city,setCity] = useState("")
+    
+    function getCity(event){
+        setCity(event.target.value)
+    }
+
+    return (
     <form id="search-form" autocomplete="off" autofocus>
-      <input
+      <input onChange={getCity}
         id="search-input"
         type="text"
         placeholder="Search for your city"

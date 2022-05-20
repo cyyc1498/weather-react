@@ -2,7 +2,7 @@ import React from "react";
 import Forecast from "./forecast";
 import SearchEngine from "./searchengine";
 import './App.css';
-import axios from "axios";
+
 
 
 export default function App() {
