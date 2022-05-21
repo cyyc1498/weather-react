@@ -13,8 +13,7 @@ export default function App() {
           <i className="fa-solid fa-location-crosshairs"></i>
         </button>
         <SearchEngine/>
-        
-        
+
 
         <hr />
         <div id="forecast" className="row">

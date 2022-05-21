@@ -37,6 +37,7 @@ export default function SearchEngine() {
     setIcon(
       ` http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
+    setFeelsLike(Math.round(response.data.main.feels_like))
      
   }axios.get(apiUrl).then(weatherData);
  
@@ -52,7 +53,7 @@ export default function SearchEngine() {
           </h2>
           <div className="row row_height">
             <div className="col-6">
-              {<i class="fa-solid fa-sun" id="icon"></i>}
+              <img src={icon} alt="current weather icon" id="icon"/>
             </div>
             <div className="col-6 midright">
               <ul className="rainWind">
@@ -74,9 +75,7 @@ export default function SearchEngine() {
             </div>
           </div>
         </div>
-        )    
-
-
+        );    
     }
     return (
     <div>
