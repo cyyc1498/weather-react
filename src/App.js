@@ -55,7 +55,7 @@ export default function App() {
         </a>
         <span id="by">Coded by Chloe Chan</span>
         <span>
-          <a href="https://github.com/cyyc1498/app" id="gitRepo">
+          <a href="https://github.com/cyyc1498/weather-react" id="gitRepo">
             GitHub Repo
           </a>
         </span>
