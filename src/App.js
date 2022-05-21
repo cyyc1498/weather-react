@@ -13,8 +13,6 @@ export default function App() {
           <i className="fa-solid fa-location-crosshairs"></i>
         </button>
         <SearchEngine/>
-
-
         <hr />
         <div id="forecast" className="row">
           <Forecast />
@@ -24,7 +22,7 @@ export default function App() {
           <Forecast />
         </div>
         <br />
-        <a id="conversion" href="#">
+        <a id="conversion" href="/">
           Convert to Fahrenheit
         </a>
         <span id="by">Coded by Chloe Chan</span>

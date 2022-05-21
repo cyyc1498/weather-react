@@ -12,16 +12,10 @@ export default function SearchEngine() {
     let [current, setCurrent] = useState("");
     let [feelsLike, setFeelsLike] = useState(null);
     let [city,setCity] = useState("");
-    let [data, setData] = useState(null)
-
+    
     
     function citySearch(event){
         setCity(event.target.value);
-    }
-
-    function toForecast(){
-        return (<div><Forecast city={city}/></div>
-        )
     }
 
     let apiKey = `273346a7322f8fd8336a2edf5af47985`;
