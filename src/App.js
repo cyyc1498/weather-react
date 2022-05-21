@@ -2,13 +2,14 @@ import React from "react";
 import Forecast from "./forecast";
 import SearchEngine from "./searchengine";
 import './App.css';
+import GetTime from "./time";
 
 
 export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <span id="time">TIME/Date</span>
+        <span id="time"><GetTime /></span>
         <button id="current-location">
           <i className="fa-solid fa-location-crosshairs"></i>
         </button>
