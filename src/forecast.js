@@ -7,6 +7,7 @@ export default function Forecast(props) {
   
  let[min,setMin] = useState(null);
  let [max,setMax] = useState(null);
+ let [forecast,setForecast] = useState(null)
 
  function getForecastTemp(response){
     console.log(response)
@@ -18,9 +19,8 @@ let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&ap
 
 axios.get(apiUrl).then(getForecastTemp)
 
-  
- 
-    return (
+ function forecastInfo(){
+     setForecast(
     <div className="col">
       <div className="card">
         <div className="card-body">
@@ -38,4 +38,5 @@ axios.get(apiUrl).then(getForecastTemp)
       </div>
     </div>
   );
+}
 }

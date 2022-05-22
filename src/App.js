@@ -3,9 +3,11 @@ import Forecast from "./forecast";
 import SearchEngine from "./searchengine";
 import './App.css';
 import GetTime from "./time";
+import axios from "axios";
 
 
 export default function App() {
+ 
   return (
     <div className="App">
       <div className="container">
@@ -14,26 +16,27 @@ export default function App() {
           <i className="fa-solid fa-location-crosshairs"></i>
         </button>
         <SearchEngine />
-        <div className="current">
+        
+        <div className="current" id="current-info">
           <h1 id="city"> Toronto </h1>
           <h2 id="currentTemp">
-            <span id="temp">20</span>
+            <span id="temp">temp</span>
             <span className="unit">°C</span>
           </h2>
           <div className="row row_height">
             <div className="col-6">
-              <i class="fa-solid fa-sun" id="icon"></i>
+              <img src="/" id="icon"/>
             </div>
             <div className="col-6 midright">
               <ul className="rainWind">
                 <li>
-                  <span id="description"></span>
+                  <span id="description">desc</span>
                 </li>
                 <li>
-                  Wind: <span id="wind">20</span>km/hr
+                  Wind: <span id="wind">wind</span>km/hr
                 </li>
                 <li>
-                  Feels like: <span id="feelsLike">20</span>
+                  Feels like: <span id="feelsLike">feels like</span>
                   <span className="unit">°C</span>
                 </li>
               </ul>
