@@ -1,9 +1,9 @@
 import React,{useState} from "react";
-import axios from "axios";
+/*import axios from "axios";*/
 
 
 export default function SearchEngine() {
-    let [temp, setTemp] = useState(null);
+ /*   let [temp, setTemp] = useState(null);
     let [desc, setDesc] = useState(null);
     let [humidity, setHumidity] = useState(null);
     let [wind, setWind] = useState(null);
@@ -36,8 +36,8 @@ export default function SearchEngine() {
  
 
     function handleSubmit(event){
-        event.preventDefault();
-        setCurrent(
+        event.preventDefault();*/
+       /* setCurrent(
         <div className="current"id="currentInfo">
           <h1 id="city">{city}</h1>
           <h2 id="currentTemp">
@@ -69,11 +69,11 @@ export default function SearchEngine() {
           </div>
         </div>
         );    
-    }
+    }*/
     return (
-    <div>
-    <form id="search-form" autocomplete="off" autofocus onSubmit={handleSubmit}>
-      <input onChange={citySearch}
+    
+    <form id="search-form" autocomplete="off" autofocus /*onSubmit={handleSubmit}*/>
+      <input /*onChange={citySearch}*/
         id="search-input"
         type="text"
         placeholder="Search for your city"
@@ -83,8 +83,6 @@ export default function SearchEngine() {
         <i className="fa-solid fa-magnifying-glass" />
       </button>
     </form>
-    <div>{current}</div>
-    </div>
+  
 
-  );
-}
+  )};
