@@ -4,6 +4,7 @@ import SearchEngine from "./searchengine";
 import './App.css';
 import GetTime from "./time";
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 export default function App() {

@@ -1,7 +1,7 @@
 body {
-  background-color: #142d4c;
-  color: #ececec;
-  font-family: "Oswald";
+  background-color: #142d4c !important;
+  color: #ececec !important;
+  font-family: "Oswald" !important;
 }
 
 #search-form {
@@ -99,9 +99,10 @@ button {
 }
 
 .card {
-  border: solid #385170;
-  background-color: #81b4a8;
+  border: solid #385170 !important;
+  background-color: #81b4a8 !important;
   text-align: center;
+  
 }
 
 /*.reload{
