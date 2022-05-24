@@ -1,14 +1,18 @@
 import React, {useState} from "react";
 import axios from "axios";
+import WeatherInfo from "./weatherinformation";
+import Forecast from "./forecast";
 
-export default function Weather(){
 
-    let [weatherData,setWeatherData] = useState({})
-    let [ready,setReady] = useState(false);
+export default function Weather(props){
 
-    function handleResponse(response){
+let [city,setCity] = useState(props.defaultCity)
+let [weatherData,setWeatherData] = useState({ready:false})
+
+      function handleResponse(response){
         console.log(response.data);
         setWeatherData({
+            ready:true,
             city: response.data.name,
             temp: Math.round(response.data.main.temp),
             desc: response.data.weather[0].description,
@@ -17,48 +21,51 @@ export default function Weather(){
             humidity: Math.round(response.data.main.humidity),
             icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
 
-        })
-        setReady(true);
-    }
-        if(ready){
-            return(
-        <div class="current">          
-            <h1 id="city">{weatherData.city}</h1>
-
-          <h2 id="currentTemp">
-            <span id="temp">{weatherData.temp}</span>
-            <span className="unit">°C</span>
-          </h2>
-
-          <div className="row row_height">
-            <div className="col-6">
-              <img id="icon" src={weatherData.icon} />
-            </div>
-            <div className="col-6 midright">
-              <ul className="rainWind">
-                <li>
-                  <span id="description">{weatherData.desc}</span>
-                </li>
-                <li>
-                  Wind: <span id="wind">{weatherData.wind}</span>km/hr
-                </li>
-                <li>
-                  Feels like: <span id="feelsLike">{weatherData.feels_like}</span>
-                  <span className="unit">°C</span>
-                </li>
-              </ul>
-              <br />
-            </div>
-          </div>
-        </div>
-            )
-        } else{
-            let city ="Toronto";
-            let apiKey = `273346a7322f8fd8336a2edf5af47985`;
-            let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-            axios.get(apiUrl).then(handleResponse);
-
-            return ("Loading...")
-        }
+        });
         
+      }
+        function search(){
+                let apiKey = `273346a7322f8fd8336a2edf5af47985`;
+                let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+                axios.get(apiUrl).then(handleResponse);
+
+            }
+      function getCity(event){
+          setCity(event.target.value)
+      }
+
+      function handleSubmit(event){
+        event.preventDefault();
+        search();
+      }
+
+      if(weatherData.ready){
+        return(
+          <div>
+            <form id="search-form" autocomplete="off" autofocus onSubmit={handleSubmit}>
+            <input onChange={getCity}
+            id="search-input"
+            type="text"
+            placeholder="Search for your city"
+            autofocus
+             />
+            <button id="button" type="submit">
+                <i className="fa-solid fa-magnifying-glass" />
+            </button>
+            </form>
+            <WeatherInfo data={weatherData}/>
+            <Forecast/>
+            
+        </div>
+  
+    )}
+
+    else{
+        search();
+        return "Loading..."
+    
     }
+
+}
+        
+    

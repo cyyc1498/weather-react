@@ -1,12 +1,10 @@
 import React from "react";
 import Forecast from "./forecast";
-import SearchEngine from "./searchengine";
 import './App.css';
 import GetTime from "./time";
-import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
 import Weather from "./weather"
-
+import WeatherInfo from "./weatherinformation";
 
 
 export default function App() {
@@ -18,10 +16,9 @@ export default function App() {
         <button id="current-location">
           <i className="fa-solid fa-location-crosshairs"></i>
         </button>
-        <SearchEngine />
-        
-        <Weather/>
-        
+        <div id="current-weather">
+        <Weather defaultCity = {"Toronto"}/>
+        </div>
         <hr />
         <div id="forecast" className="row">
           <Forecast />
