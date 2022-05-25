@@ -26,8 +26,8 @@ export default function WeatherInfo(props){
                     Humidity: <span id="humidity">{props.data.humidity}</span>
                 </li>
                 <li key="feelsLike">
-                  Feels like: <span id="feelsLike">{props.data.feelsLike}</span>
-                  <span className="unit">°C | °F</span>
+                  Feels like: <span id="feelsLike">{props.data.feels_like} </span>
+                  <span className="unit">°C</span>
                 </li>
               </ul>
               <br />
