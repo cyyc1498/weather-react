@@ -27,7 +27,7 @@ export default function WeatherInfo(props){
                 </li>
                 <li key="feelsLike">
                   Feels like: <span id="feelsLike">{props.data.feelsLike}</span>
-                  <span className="unit">°C</span>
+                  <span className="unit">°C | °F</span>
                 </li>
               </ul>
               <br />

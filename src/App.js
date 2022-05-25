@@ -24,12 +24,7 @@ export default function App() {
         <a id="conversion" href="/">
           Convert to Fahrenheit
         </a>
-        <span id="by">Coded by Chloe Chan</span>
-        <span>
-          <a href="https://github.com/cyyc1498/weather-react" id="gitRepo">
-            GitHub Repo
-          </a>
-        </span>
+       <span id="by"><a href="https://github.com/cyyc1498/weather-react" id="gitRepo">Open Source</a> code by Chloe Chan</span>
       </div>
     </div>
   );
