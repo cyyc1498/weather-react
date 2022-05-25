@@ -1,13 +1,7 @@
 import React from "react";
-import App from "./App";
-import axios from "axios";
 
 
-
-
-
-export default function WeatherInfo(props){
-
+export default function WeatherInfo(props){ 
     
     return(
           <div className="current">

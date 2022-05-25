@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import axios from "axios";
 import WeatherInfo from "./weatherinformation";
 import Forecast from "./forecast";
-
+import GetTime from "./time";
 
 export default function Weather(props){
 
@@ -19,8 +19,9 @@ let [weatherData,setWeatherData] = useState({ready:false})
             wind: Math.round(response.data.wind.speed),
             feels_like: Math.round(response.data.main.feels_like),
             humidity: Math.round(response.data.main.humidity),
-            icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-
+            icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+            date: new Date(response.data.dt*1000),
+            coords: response.coord
         });
         
       }
@@ -42,6 +43,7 @@ let [weatherData,setWeatherData] = useState({ready:false})
       if(weatherData.ready){
         return(
           <div>
+            <span id="time"><GetTime date={weatherData.date}/></span>
             <form id="search-form" autocomplete="off" autofocus onSubmit={handleSubmit}>
             <input onChange={getCity}
             id="search-input"
@@ -54,7 +56,10 @@ let [weatherData,setWeatherData] = useState({ready:false})
             </button>
             </form>
             <WeatherInfo data={weatherData}/>
-            <Forecast/>
+            <hr />
+            <div id="forecast" className="row">
+            <Forecast coordinates={weatherData.coord}/>
+            </div>
             
         </div>
   

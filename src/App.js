@@ -12,21 +12,14 @@ export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <span id="time"><GetTime/></span>
+
         <button id="current-location">
           <i className="fa-solid fa-location-crosshairs"></i>
         </button>
         <div id="current-weather">
         <Weather defaultCity = {"Toronto"}/>
         </div>
-        <hr />
-        <div id="forecast" className="row">
-          <Forecast />
-          <Forecast />
-          <Forecast />
-          <Forecast />
-          <Forecast />
-        </div>
+        
         <br />
         <a id="conversion" href="/">
           Convert to Fahrenheit
