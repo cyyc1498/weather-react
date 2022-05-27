@@ -1,10 +1,10 @@
 import React from "react";
-import Forecast from "./forecast";
+//import Forecast from "./forecast";
 import './App.css';
-import GetTime from "./time";
+
 import 'bootstrap/dist/css/bootstrap.css';
 import Weather from "./weather"
-import WeatherInfo from "./weatherinformation";
+
 
 
 export default function App() {
@@ -21,9 +21,7 @@ export default function App() {
         </div>
         
         <br />
-        <a id="conversion" href="/">
-          Convert to Fahrenheit
-        </a>
+        
        <span id="by"><a href="https://github.com/cyyc1498/weather-react" id="gitRepo">Open Source</a> code by Chloe Chan</span>
       </div>
     </div>

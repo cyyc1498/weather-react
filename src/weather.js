@@ -3,6 +3,7 @@ import axios from "axios";
 import WeatherInfo from "./weatherinformation";
 import Forecast from "./forecast";
 import GetTime from "./time";
+import ConversionLink from "./unitconversion";
 
 export default function Weather(props){
 
@@ -28,7 +29,12 @@ let [weatherData,setWeatherData] = useState({ready:false})
         function search(){
                 let apiKey = `273346a7322f8fd8336a2edf5af47985`;
                 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+                
                 axios.get(apiUrl).then(handleResponse);
+
+                
+                
+                
 
             }
       function getCity(event){
@@ -58,8 +64,9 @@ let [weatherData,setWeatherData] = useState({ready:false})
             <WeatherInfo data={weatherData}/>
             <hr />
             <div id="forecast" className="row">
-            <Forecast coordinates={weatherData.coord}/>
+            <Forecast/>
             </div>
+            <ConversionLink celsius={weatherData.temp} feels={weatherData.feels_like}/>
             
         </div>
   
