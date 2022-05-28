@@ -5,32 +5,33 @@ import React, {useState} from "react";
 
 export default function ConversionLink(props){
 
-    let [unit,setUnit] = useState("cel");
+    let [isCel,setIsCel] = useState(true);
 
     function showF(event){
         event.preventDefault();
-        document.querySelector("#temp").innerHTML = Math.round((props.celsius)*9/5+32)
-        document.querySelector("#feelsLike").innerHTML = Math.round((props.feels)*9/5+32)
+        document.querySelector("#temp").innerHTML = Math.round((props.data.temp)*9/5+32)
+        document.querySelector("#feelsLike").innerHTML = Math.round((props.data.feels_like)*9/5+32)
         document.querySelectorAll(".unit").forEach(function(element){
              element.innerHTML = "°F";
         })
-        setUnit("far");
+        setIsCel(false);
        
     }
 
     function showC(event){
         event.preventDefault();
-        document.querySelector("#temp").innerHTML = Math.round((props.celsius))
-        document.querySelector("#feelsLike").innerHTML = (props.feels)
+        document.querySelector("#temp").innerHTML = (props.data.temp)
+        document.querySelector("#feelsLike").innerHTML = (props.data.feels_like)
         document.querySelectorAll(".unit").forEach(function(element){
              element.innerHTML = "°C";
         })
-        setUnit("cel");
+        setIsCel(true);
     }
 
-    if(unit === "cel"){
+    if(isCel === true){
+        
         return(
-            <span >
+            <span>
                 <a href="/" id="conversion" onClick={showF}>
                     Convert to Farenheit
                 </a>
