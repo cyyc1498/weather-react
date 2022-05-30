@@ -27,7 +27,7 @@ export default function Weather(props) {
   }
   function search() {
     let apiKey = `273346a7322f8fd8336a2edf5af47985`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
     axios.get(apiUrl).then(handleResponse);
   }
@@ -42,33 +42,11 @@ export default function Weather(props) {
 
   function showF(event) {
     event.preventDefault();
-    document.querySelector("#temp").innerHTML =
-      weatherData.unit === "metric"
-        ? Math.round((weatherData.temp * 9) / 5 + 32)
-        : Math.round(weatherData.temp);
-    document.querySelector("#feelsLike").innerHTML =
-      weatherData.unit === "metric"
-        ? Math.round((weatherData.feels_like * 9) / 5 + 32)
-        : Math.round(weatherData.feels_like);
-    document.querySelectorAll(".unit").forEach(function (element) {
-      element.innerHTML = "°F";
-    });
     setUnit("imperial");
   }
 
   function showC(event) {
     event.preventDefault();
-    document.querySelector("#temp").innerHTML =
-      weatherData.unit === "metric"
-        ? Math.round(weatherData.temp)
-        : Math.round((weatherData.temp -32)*5/9);
-    document.querySelector("#feelsLike").innerHTML =
-      weatherData.unit === "metric"
-        ? Math.round(weatherData.feels_like)
-        : Math.round((weatherData.feels_like -32)*5/9);
-    document.querySelectorAll(".unit").forEach(function (element) {
-      element.innerHTML = "°C";
-    });
     setUnit("metric");
   }
 
@@ -95,7 +73,7 @@ export default function Weather(props) {
             <i className="fa-solid fa-magnifying-glass" />
           </button>
         </form>
-        <WeatherInfo data={weatherData} />
+        <WeatherInfo data={weatherData} unit={unit} />
         <hr />
         <div id="forecast" className="row">
           <Forecast />
