@@ -2,7 +2,9 @@ import React from "react";
 
 
 export default function GetTime(props){
-  <React.Fragment></React.Fragment>
+  <React.Fragment>
+    <div>props.div</div>
+  </React.Fragment>
   console.log(props.date)
 
   
