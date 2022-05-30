@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherInfo from "./weatherinformation";
-import Forecast from "./forecast";
+//import Forecast from "./forecast";
 import GetTime from "./time";
 
 export default function Weather(props) {
@@ -76,7 +76,7 @@ export default function Weather(props) {
         <WeatherInfo data={weatherData} unit={unit} />
         <hr />
         <div id="forecast" className="row">
-          <Forecast data={weatherData}/>
+          
         </div>
         {unit === "metric" ? (
           <span>
