@@ -1,5 +1,5 @@
 import React from "react";
-//import Forecast from "./forecast";
+
 import './App.css';
 
 import 'bootstrap/dist/css/bootstrap.css';
