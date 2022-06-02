@@ -18,20 +18,40 @@ function day(){
     return weekdays[day]
 }
 
+if(props.unit === "metric"){
 return (
       <div className="card">
         <div className="card-body">
           <h5 className="card-title">{day()}</h5>
           <p className="card-text">
-          <img src="/"/>
+          <img src="http://openweathermap.org/img/wn/{forecastDay.weather[0].icon}@2x.png"/>
             <br />
             <br />
             <span className="forecastTempMax">{Math.round(getMax())}</span>
-            <span className="unit">°C</span> |
-            <span className="forecastTempMin">{Math.round(getMin())}</span>
+            <span className="unit">°C</span> | 
+            <span className="forecastTempMin"> {Math.round(getMin())}</span>
             <span className="unit">°C</span>
           </p>
         </div>
       </div>
     )
 }
+else {
+    return(
+        <div className="card">
+        <div className="card-body">
+          <h5 className="card-title">{day()}</h5>
+          <p className="card-text">
+          <img src="http://openweathermap.org/img/wn/{forecastDay.weather[0].icon}@2x.png"/>
+            <br />
+            <br />
+            <span className="forecastTempMax">{Math.round(getMax()* 5 / 9 + 32)}</span>
+            <span className="unit">°F</span> | 
+            <span className="forecastTempMin"> {Math.round(getMin()* 5/ 9 + 32)}</span>
+            <span className="unit">°F</span>
+          </p>
+        </div>
+      </div>
+    )
+    
+}}

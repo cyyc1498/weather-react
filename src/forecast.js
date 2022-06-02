@@ -5,6 +5,7 @@ import ForecastDay from "./forecastday";
 export default function Forecast(props) {
   let [loaded,setLoaded] = useState(false)
   let [forecastData,setForecastData] = useState(null)
+  let [unit,setUnit] = useState("metric")
   
   function forecastResponse(response){
     setForecastData(response.data.daily);
@@ -15,10 +16,10 @@ export default function Forecast(props) {
     return (
     <div className="row days">
       {forecastData.map(function(forecastDay,index){
-        if(index < 6){
+        if(index>0 && index < 6){
           return(
           <div className="col" key={index}>
-            <ForecastDay data={forecastDay}/> 
+            <ForecastDay data={forecastDay} unit={unit}/> 
           </div>
           )
         }
