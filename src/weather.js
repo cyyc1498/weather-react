@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherInfo from "./weatherinformation";
-//import Forecast from "./forecast";
+import Forecast from "./forecast";
 import GetTime from "./time";
 
 export default function Weather(props) {
@@ -20,13 +20,14 @@ export default function Weather(props) {
       feels_like: Math.round(response.data.main.feels_like),
       humidity: Math.round(response.data.main.humidity),
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      coords: response.data.coord,
       date: new Date(response.data.dt * 1000),
-      coords: response.coord,
       unit: unit,
     });
   }
+
   function search() {
-    let apiKey = `273346a7322f8fd8336a2edf5af47985`;
+    let apiKey = `b050aca97d97d1a30568caadb921ab4f`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
     axios.get(apiUrl).then(handleResponse);
@@ -58,7 +59,7 @@ export default function Weather(props) {
         </span>
         <form
           id="search-form"
-          autocomplete="off"
+          autoComplete="off"
           autofocus
           onSubmit={handleSubmit}
         >
@@ -75,9 +76,10 @@ export default function Weather(props) {
         </form>
         <WeatherInfo data={weatherData} unit={unit} />
         <hr />
-        <div id="forecast" className="row">
-          
+        <div>
+        <Forecast coords={weatherData.coords} unit={unit}/>
         </div>
+
         {unit === "metric" ? (
           <span>
             <a href="/" id="conversion" onClick={showF}>
