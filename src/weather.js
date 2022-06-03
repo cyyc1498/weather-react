@@ -76,11 +76,18 @@ export default function Weather(props) {
         </form>
         <WeatherInfo data={weatherData} unit={unit} />
         <hr />
-        <div>
-        <Forecast coords={weatherData.coords} unit={unit}/>
-        </div>
+        
+        <Forecast coordinates={weatherData.coords} unit={unit}/>
+        
+      </div>
+    );
+  } else {
+    search();
+    return "Loading...";
+  }
+}
 
-        {unit === "metric" ? (
+/*{unit === "metric" ? (
           <span>
             <a href="/" id="conversion" onClick={showF}>
               Convert to Farenheit
@@ -92,11 +99,4 @@ export default function Weather(props) {
               Convert to Celsius
             </a>
           </span>
-        )}
-      </div>
-    );
-  } else {
-    search();
-    return "Loading...";
-  }
-}
+        )}*/
