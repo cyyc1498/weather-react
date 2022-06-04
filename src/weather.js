@@ -41,7 +41,7 @@ export default function Weather(props) {
     search();
   }
 
-  function showF(event) {
+  /*function showF(event) {
     event.preventDefault();
     setUnit("imperial");
   }
@@ -49,7 +49,7 @@ export default function Weather(props) {
   function showC(event) {
     event.preventDefault();
     setUnit("metric");
-  }
+  }*/
 
   if (weatherData.ready) {
     return (

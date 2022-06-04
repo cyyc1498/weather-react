@@ -2,7 +2,7 @@ import React from "react";
 import WeatherIcon from "./weathericon";
 
 export default function WeatherInfo(props) {
-  if (props.unit === "metric") {
+  //if (props.unit === "metric") {
     return (
       <div className="current">
         <h1 id="city">{props.data.city}</h1>
@@ -35,7 +35,7 @@ export default function WeatherInfo(props) {
         </div>
       </div>
     );
-  } else {
+  /*} else {
     return (
       <div className="current">
         <h1 id="city">{props.data.city}</h1>
@@ -71,5 +71,5 @@ export default function WeatherInfo(props) {
         </div>
       </div>
     );
-  }
+  }*/
 }
