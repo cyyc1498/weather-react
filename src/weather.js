@@ -7,7 +7,7 @@ import GetTime from "./time";
 export default function Weather(props) {
   let [city, setCity] = useState(props.defaultCity);
   let [weatherData, setWeatherData] = useState({ ready: false });
-  let [unit, setUnit] = useState("metric");
+  //let [unit, setUnit] = useState("metric");
 
   function handleResponse(response) {
     console.log(response.data);
@@ -22,7 +22,7 @@ export default function Weather(props) {
       icon: response.data.weather[0].icon,
       coords: response.data.coord,
       date: new Date(response.data.dt * 1000),
-      unit: unit,
+      //unit: unit,
     });
   }
 
@@ -74,10 +74,10 @@ export default function Weather(props) {
             <i className="fa-solid fa-magnifying-glass" />
           </button>
         </form>
-        <WeatherInfo data={weatherData} unit={unit} />
+        <WeatherInfo data={weatherData}/>
         <hr />
         
-        <Forecast coordinates={weatherData.coords} unit={unit}/>
+        <Forecast coordinates={weatherData.coords}/>
         
       </div>
     );
