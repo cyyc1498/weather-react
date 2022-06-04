@@ -1,4 +1,5 @@
 import React from "react";
+import WeatherIcon from "./weathericon";
 
 export default function WeatherInfo(props) {
   if (props.unit === "metric") {
@@ -10,8 +11,8 @@ export default function WeatherInfo(props) {
           <span className="unit">°C</span>
         </h2>
         <div className="row row_height">
-          <div className="col-6">
-            <img src={props.data.icon} alt="current weather icon" id="icon" />
+          <div className="col-6 current-weather-icon" id="icon">
+            <WeatherIcon code={props.data.icon}/>
           </div>
           <div className="col-6 midright">
             <ul className="rainWind">

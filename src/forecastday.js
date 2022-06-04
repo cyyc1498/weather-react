@@ -1,4 +1,5 @@
 import React from "react";
+import WeatherIcon from "./weathericon";
 
 export default function ForecastDay(props){
 
@@ -25,7 +26,9 @@ return (
         <div className="card-body">
           <h5 className="card-title">{day()}</h5>
           <p className="card-text">
-          <img src="http://openweathermap.org/img/wn/{forecastDay.weather[0].icon}@2x.png"/>
+          <div className = "forecast-icons">
+          <WeatherIcon code={props.data.weather[0].icon}/>
+          </div>
             <br />
             <br />
             <span className="forecastTempMax">{Math.round(getMax())}</span>

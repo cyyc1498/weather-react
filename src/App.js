@@ -20,7 +20,7 @@ export default function App() {
         
         <br />
         
-       <span id="by"><a href="https://github.com/cyyc1498/weather-react" id="gitRepo">Open Source</a> code by Chloe Chan</span>
+       <div id="by"><a href="https://github.com/cyyc1498/weather-react" id="gitRepo">Open Source</a> code by Chloe Chan</div>
       </div>
     </div>
   );
